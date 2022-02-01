@@ -27,7 +27,7 @@ class StatisticalForecast(BaseModel):
 class StatisticalForecastList(BaseModel):
     __root__: List[StatisticalForecast]
 
-@app.post('/forecast', response_model=List[StatisticalForecast])
+@app.post('/get_forecast', response_model=List[StatisticalForecast])
 def forecast(sales_history:List[SalesHistory]):
     prediction_length = 365
     sales_history_df = pd.DataFrame([s.dict() for s in sales_history])

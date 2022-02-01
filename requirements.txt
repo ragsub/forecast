@@ -3,4 +3,4 @@ uvicorn
 pystan==2.19.1.1
 setuptools
 prophet
-darts
+u8darts[prophet]
