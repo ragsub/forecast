@@ -7,10 +7,13 @@ from typing import List
 import pandas as pd
 from darts import TimeSeries
 from darts.models import ExponentialSmoothing
+import os
 
 app = FastAPI()
 
-app.add_middleware(CORSMiddleware, allow_origins=['http://127.0.0.1:2000'])
+allowed_hosts = os.environ.get('ALLOWED_HOSTS','http://127.0.0.1:2000')
+
+app.add_middleware(CORSMiddleware, allow_origins=[allowed_hosts])
 
 class SalesHistory(BaseModel):
     sale_date: date
